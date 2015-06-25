@@ -2,12 +2,12 @@
   "name": "analytics.js-integration-olark",
   "repo": "segment-integrations/analytics.js-integration-olark",
   "description": "The Olark analytics.js integration.",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "license": "MIT",
   "main": "lib/index.js",
   "dependencies": {
     "segmentio/use-https": "0.1.0",
-    "segmentio/analytics.js-integration": "0.3.x",
+    "segmentio/analytics.js-integration": "^1.0.0",
     "timoxley/next-tick": "0.0.2"
   },
   "development": {
