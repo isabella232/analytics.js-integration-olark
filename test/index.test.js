@@ -41,7 +41,8 @@ describe('Olark', function() {
       .option('listen', false)
       .option('page', true)
       .option('siteId', '')
-      .option('track', false));
+      .option('track', false)
+      .option('inline', false));
   });
 
   describe('before loading', function() {
@@ -65,6 +66,26 @@ describe('Olark', function() {
   describe('loading', function() {
     it('should load', function(done) {
       analytics.load(olark, done);
+    });
+  });
+
+  describe('loading inline', function() {
+    beforeEach(function() {
+      analytics.spy(window.olark, 'configure');
+    });
+
+    it('should pass in inline chat to `configure` if set', function() {
+      olark.options.inline = true;
+      analytics.initialize();
+      analytics.page();
+      analytics.called(window.olark.configure, 'box.inline', true);
+    });
+
+    it('should not pass in inline chat to `configure` if not set', function() {
+      olark.options.inline = false;
+      analytics.initialize();
+      analytics.page();
+      analytics.didNotCall(window.olark.configure, 'box.inline');
     });
   });
 
