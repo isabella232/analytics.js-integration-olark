@@ -1,9 +1,10 @@
+'use strict';
 
-var Analytics = require('analytics.js-core').constructor;
-var integration = require('analytics.js-integration');
-var once = require('once');
-var sandbox = require('clear-env');
-var tester = require('analytics.js-integration-tester');
+var Analytics = require('@segment/analytics.js-core').constructor;
+var integration = require('@segment/analytics.js-integration');
+var once = require('once-component');
+var sandbox = require('@segment/clear-env');
+var tester = require('@segment/analytics.js-integration-tester');
 var Olark = require('../lib/');
 
 describe('Olark', function() {
