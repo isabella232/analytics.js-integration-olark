@@ -323,7 +323,7 @@ describe('Olark', function() {
       it('should send a chat started event', function(done) {
         window.olark('api.chat.sendMessageToVisitor', { body: 'hello' });
         setTimeout(function() {
-          analytics.called(analytics.track, 'Live Chat Conversation Started', {}, { context: { integration: { name: 'olark', version: '1.0.0' } } });
+          analytics.called(analytics.track, 'Live Chat Conversation Started', {}, { context: { integration: { name: 'olark', version: '1.0.0' } }, integrations: { Olark: false } });
           done();
         }, 3000);
       });
@@ -335,7 +335,7 @@ describe('Olark', function() {
       it('should send a chat sent event', function(done) {
         window.olark('api.chat.sendMessageToVisitor', { body: 'hi, PLEASE RESPOND' });
         setTimeout(function() {
-          analytics.called(analytics.track, 'Live Chat Message Sent', { messageBody: 'hi' }, { context: { integration: { name: 'olark', version: '1.0.0' }}});
+          analytics.called(analytics.track, 'Live Chat Message Sent', { messageBody: 'hi' }, { context: { integration: { name: 'olark', version: '1.0.0' }}, integrations: { Olark: false }});
           done();
         }, 5000);
       });**/
@@ -343,7 +343,7 @@ describe('Olark', function() {
       it('should send a chat received event', function(done) {
         window.olark('api.chat.sendMessageToVisitor', { body: 'oh hai' });
         setTimeout(function() {
-          analytics.called(analytics.track, 'Live Chat Message Received', {}, { context: { integration: { name: 'olark', version: '1.0.0' } } });
+          analytics.called(analytics.track, 'Live Chat Message Received', {}, { context: { integration: { name: 'olark', version: '1.0.0' } }, integrations: { Olark: false } });
           done();
         }, 3000);
       });
